@@ -57,7 +57,7 @@ const Register = () => {
         {/* Header */}
         <div className="bg-gradient-to-r from-primary to-secondary p-8 text-white text-center">
           <h1 className="text-3xl font-bold mb-2">Create Account</h1>
-          <p className="text-sm opacity-90">Join ShopHub and start shopping</p>
+          <p className="text-sm opacity-90">Join Maya and start shopping</p>
         </div>
 
         {/* Form */}
