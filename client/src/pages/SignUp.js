@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiLock, FiUser, FiPhone } from 'react-icons/fi';
 import { Link, useNavigate } from 'react-router-dom';
-import { useCart } from '../context/CartContext';
+import API_BASE_URL from '../config/api';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ const SignUp = () => {
     setServerError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/register', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

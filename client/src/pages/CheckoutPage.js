@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiChevronRight, FiEdit2, FiPlus } from 'react-icons/fi';
+import { FiChevronRight, FiPlus } from 'react-icons/fi';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import API_BASE_URL from '../config/api';
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const CheckoutPage = () => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/orders/addresses', {
+      const response = await fetch(`${API_BASE_URL}/api/orders/addresses`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

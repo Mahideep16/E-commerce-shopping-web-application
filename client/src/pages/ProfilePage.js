@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiEdit2, FiLogOut, FiPackage } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import API_BASE_URL from '../config/api';
 
 const ProfilePage = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const ProfilePage = () => {
     // Fetch user data
     const fetchUserData = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/auth/profile', {
+        const response = await fetch(`${API_BASE_URL}/api/auth/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -45,7 +46,7 @@ const ProfilePage = () => {
 
     const fetchOrders = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/orders/my-orders', {
+        const response = await fetch(`${API_BASE_URL}/api/orders/my-orders`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -73,7 +74,7 @@ const ProfilePage = () => {
   const handleUpdateProfile = async () => {
     const token = localStorage.getItem('token');
     try {
-      const response = await fetch('http://localhost:5000/api/auth/profile', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

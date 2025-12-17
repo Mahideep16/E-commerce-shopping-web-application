@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FiMail, FiLock } from 'react-icons/fi';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import API_BASE_URL from '../config/api';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -56,7 +57,7 @@ const Login = () => {
     setServerError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

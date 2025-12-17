@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiEdit2, FiTrash2, FiPlus } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import API_BASE_URL from '../config/api';
 
 const AddressPage = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const AddressPage = () => {
 
   const fetchAddresses = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/orders/addresses', {
+      const response = await fetch(`${API_BASE_URL}/api/orders/addresses`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -83,7 +84,7 @@ const AddressPage = () => {
     setLoading(true);
 
     try {
-      const response = await fetch('http://localhost:5000/api/orders/addresses', {
+      const response = await fetch(`${API_BASE_URL}/api/orders/addresses`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -113,7 +114,7 @@ const AddressPage = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this address?')) {
       try {
-        const response = await fetch(`http://localhost:5000/api/orders/addresses/${id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/orders/addresses/${id}`, {
           method: 'DELETE',
           headers: {
             Authorization: `Bearer ${token}`,
